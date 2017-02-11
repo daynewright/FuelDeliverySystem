@@ -1,4 +1,5 @@
 ﻿using System;
+using FuelDeliverySystem.Data;
 
 namespace FuelDeliverySystem
 {
@@ -6,7 +7,8 @@ namespace FuelDeliverySystem
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //If database is empty then add seed data
+            DbInitializer.Initialize();
         }
     }
 }

@@ -3,12 +3,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace FuelDeliverySystem
+namespace FuelDeliverySystem.Models
 {
     public class OperatingRegion
     {
         [Key]
         public int OperatingRegionId { get; set; }
+
+        [Required]
+        public string Name { get; set; }
 
         [Required]
         [DataTypeAttribute(DataType.Date)]
