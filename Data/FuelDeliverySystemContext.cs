@@ -6,11 +6,6 @@ namespace FuelDeliverySystem.Data
 {
     public class FuelDeliverySystemContext : DbContext
     {
-        // public FuelDeliverySystemContext(DbContextOptions<FuelDeliverySystemContext> options)
-        // : base(options) 
-        // {
-
-        // }
 
         public DbSet<Truck> Truck { get; set; }
         public DbSet<Location> Location { get; set; }
