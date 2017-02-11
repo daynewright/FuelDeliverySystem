@@ -39,14 +39,6 @@ namespace FuelDeliverySystem.Data
             modelBuilder.Entity<OperatingRegion>()
             .Property(b => b.DateCreated)
             .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
-
-            modelBuilder.Entity<Stop>()
-            .Property(b => b.DateCreated)
-            .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
-
-            modelBuilder.Entity<Trip>()
-            .Property(b => b.DateCreated)
-            .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
         }
     }
 }

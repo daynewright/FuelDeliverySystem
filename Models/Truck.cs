@@ -19,7 +19,7 @@ namespace FuelDeliverySystem.Models
         public string Name { get; set; }
         
         [Required]
-        public int Capacity { get; set; } = 100;
+        public int Capacity { get; set; } = 9000;
 
         //Foreign Key Dependencies
         [Required]
