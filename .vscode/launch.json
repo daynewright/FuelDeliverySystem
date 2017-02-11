@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/FuelDeliverySystem.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/FuelDeliverySystem.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "externalConsole": false,
