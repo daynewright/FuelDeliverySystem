@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Data.Sqlite;
 
-
 namespace FuelDeliverySystem.Data
 {
     public class FuelDeliverySystemConnection

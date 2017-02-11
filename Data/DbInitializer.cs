@@ -3,15 +3,14 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using FuelDeliverySystem.Models;
-using System.Collections.Generic;
 
 namespace FuelDeliverySystem.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(IServiceProvider serviceProvider)
+        public static void Initialize()
         {
-            using (var context = new FuelDeliverySystemContext(serviceProvider.GetRequiredService<DbContextOptions<FuelDeliverySystemContext>>()))
+            using (var context = new FuelDeliverySystemContext())
             {
                 if (context.Truck.Any())
                 {
