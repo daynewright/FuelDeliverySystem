@@ -11,6 +11,9 @@ namespace FuelDeliverySystem.Models
         public int OperatingRegionId { get; set; }
 
         [Required]
+        public string Name { get; set; }
+
+        [Required]
         [DataTypeAttribute(DataType.Date)]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Computed)]
         public DateTime DateCreated { get; set; }
