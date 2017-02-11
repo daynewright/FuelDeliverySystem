@@ -6,11 +6,6 @@ namespace FuelDeliverySystem.Data
 {
     public class FuelDeliverySystemContext : DbContext
     {
-        // public FuelDeliverySystemContext(DbContextOptions<FuelDeliverySystemContext> options)
-        // : base(options) 
-        // {
-
-        // }
 
         public DbSet<Truck> Truck { get; set; }
         public DbSet<Location> Location { get; set; }
@@ -42,14 +37,6 @@ namespace FuelDeliverySystem.Data
             .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
 
             modelBuilder.Entity<OperatingRegion>()
-            .Property(b => b.DateCreated)
-            .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
-
-            modelBuilder.Entity<Stop>()
-            .Property(b => b.DateCreated)
-            .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
-
-            modelBuilder.Entity<Trip>()
             .Property(b => b.DateCreated)
             .HasDefaultValueSql("strftime('%Y-%m-%d %H:%M:%S')");
         }
