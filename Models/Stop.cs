@@ -17,6 +17,9 @@ namespace FuelDeliverySystem.Models
         [Required]
         public int FuelPercentageUsed { get; set; }
 
+        [Required]
+        public int FuelAmountUsed { get; set; }
+
         //Foreign Key Dependencies
         [Required]
         public int LocationId { get; set; }
