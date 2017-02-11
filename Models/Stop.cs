@@ -7,7 +7,7 @@ namespace FuelDeliverySystem
     public class Stop
     {
         [Key]
-        public int TripId { get; set; }
+        public int StopId { get; set; }
 
         [Required]
         [DataTypeAttribute(DataType.Date)]
@@ -21,5 +21,9 @@ namespace FuelDeliverySystem
         [Required]
         public int LocationId { get; set; }
         public Location Location { get; set; }
+
+        [Required]
+        public int TripId { get; set; }
+        public Trip Trip { get; set; }
     }
 }
