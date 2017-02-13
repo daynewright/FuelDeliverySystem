@@ -60,19 +60,19 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
 
 ### Desktop Application
 
-#### Dispatch Truck From Baseg
+#### DISPATCH TRUCK FROM BASE
  **Given** a truck has refueled at base <br/>
  **When** the dispatcher receives the notification <br />
  **Then** the dispatcher sends web service new trip <br />
  **Then** the dispatcher sends the truck a starting destination within its operating region <br />
 
-#### Dispatch Truck To Next Location
+#### DISPATCH TRUCK TO NEXT LOCATION
  **Given** a truck has completed a location drop off <br />
  **And** the truck has fuel remaining <br />
  **When** the dispatcher receives the notification <br />
  **Then** the dispatcher sends the truck a new destination within its operating region
 
-#### Dispatch Truck Back To Base
+#### DISPATCH TRUCK BACK TO BASE
  **Given** a truck has completed a location drop off <br />
  **And** the truck has no fuel remaining <br />
  **When** the dispatcher receives the notification <br />
@@ -80,34 +80,34 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
 
 ### Embedded Truck System
 
-#### Travel To First Location
+#### TRAVEL TO FIRST LOCATION
   **Given** a truck is at base <br />
   **When** the truck has refueled <br />
   **Then** the truck will notify the dispatcher it is ready for a location in its operating region
 
-#### Travel To Next Location
+#### TRAVEL TO NEXT LOCATION
   **Given** a truck is at a location <br />
   **When** the truck has delivered fuel <br />
   **Then** the truck will notify the dispatcher it is ready for instructions
 
 ### Web Service API
 
-#### Truck Sends POST Request After Stop
+#### TRUCK SENDS POST REQUEST AFTER STOP
   **Given** a truck is at a location <br />
   **When** the truck has finished fueling <br />
   **Then** the truck will `POST` to the Web Service API with the `locationId` / `TripId` / `FuelPercentageUsed` / `FuelAmountUsed`
 
-##### Dispatcher Notified Of Truck POST Request
+#### DISPATCHER NOTIFIED OF TRUCK POST REQUEST
   **Given** a truck is at a location <br />
   **And** the truck has finished fueling <br />
   **And** the truck has sent a `POST` request to the Web Service API <br />
   **Then** the Web Service API will send a notification to the Dispatcher
 
-#### Dispatcher Sends POST Request with Next location
+#### DISPATCHER SENDS POST REQUEST WITH NEXT LOCATION
   **Given** a dispatcher has been notified of a truck `POST` <br />
   **Then** the dispatcher will send a `GET` for new data <br />
   **Then** the dispatcher will `POST` with new location data
 
-#### Truck Notified Of Dispatcher POST Request
+#### TRUCK NOTIFIED OF DISPATCHER POST REQUEST
   **Given** a dispatcher has set a `POST` with new location data <br />
   **Then** the truck will be notified of the next location to travel
