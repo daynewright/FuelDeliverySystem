@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Fuel Delivery ERD](#Fuel-Delivery-ERD)
+- [Fuel Delivery ERD](#fuel-delivery-erd)
   - [Column Definitions](#definitions)
   - [Diagram](#diagram)
 - [User Stories](#user-stories)
@@ -10,9 +10,8 @@
   - [Embedded Truck System](#embedded-truck-system)
   - [Web Service API](#web-service-api)
 - [Database Queries](#database-queries)
-- [Approve Workshop](#approve-workshop)
-- [Print Workshop](#print-workshop)
-- [Messaging](#messaging)
+  - [Top 10 Last 12 Months](#top-10-last-12-months)
+  - [Avg Fuel Location By Month](#avg-fuel-location-by-month)
 
 
 ## Fuel Delivery ERD
@@ -111,3 +110,44 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
 #### TRUCK NOTIFIED OF DISPATCHER POST REQUEST
   **Given** a dispatcher has set a `POST` with new location data <br />
   **Then** the truck will be notified of the next location to travel
+
+## Database Queries
+
+#### TOP 10 LAST 12 MONTHS
+[Query File](https://github.com/daynewright/FuelDeliverySystem/blob/master/Data/Queries/Avg_Fuel_Location_Month_Name.sql)
+```
+/*
+ Selects the top 10 locations in the last 12 months that received fuel deliveries.
+ Lists them descending by fuel delivery total.
+*/
+
+SELECT L.Name AS "Location Name",
+	(SELECT SUM(FuelAmountUsed)
+	 FROM Stop AS S
+	 WHERE S.LocationId == L.LocationId) AS "Fuel Received"
+FROM Location AS L INNER JOIN Stop AS S
+WHERE S.DateCreated BETWEEN DATE('now', 'start of month', '-11 months') AND DATE('now')
+GROUP BY L.Name
+ORDER BY "Fuel Received" DESC
+LIMIT 10;
+```
+
+#### AVG FUEL LOCATION BY MONTH
+[Query File](https://github.com/daynewright/FuelDeliverySystem/blob/master/Data/Queries/Avg_Fuel_Location_Month_Number.sql)
+```
+/*
+ Selects the average fuel consumption by delivery per location listed by month.
+ Leaves month as number.
+*/
+
+
+SELECT STRFTIME('%m', S.DateCreated) AS "Month",
+	L.Name AS "Location Name",
+	(SELECT AVG(FuelAmountUsed)
+	 FROM Stop AS S
+	 WHERE STRFTIME('%m', S.DateCreated)
+	 AND S.LocationId == L.LocationId) AS "Fuel Use Avg"
+FROM Location AS L, Stop AS S
+WHERE L.LocationId == S.LocationId
+GROUP BY L.Name;
+```
