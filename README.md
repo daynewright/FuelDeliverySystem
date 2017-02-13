@@ -56,6 +56,7 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
 </p>
 
 ## User Stories
+_(Also listed as issues [here](https://github.com/daynewright/FuelDeliverySystem/issues))_
 
 ### Desktop Application
 
