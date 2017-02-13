@@ -1,5 +1,7 @@
-# Selects the top 10 locations in the last 12 months that received fuel deliveries.  
-# Lists them descending by fuel delivery total.
+/*
+ Selects the top 10 locations in the last 12 months that received fuel deliveries.  
+ Lists them descending by fuel delivery total.
+*/
 
 SELECT L.Name AS "Location Name",
 	(SELECT SUM(FuelAmountUsed)

@@ -1,5 +1,7 @@
-# Selects the average fuel consumption by delivery per location listed by month.  
-# Converts month to readable format.
+/*
+ Selects the average fuel consumption by delivery per location listed by month.  
+ Converts month to readable format.
+*/
 
 SELECT CASE STRFTIME('%m', S.DateCreated) 
 	WHEN '01' THEN 'January' WHEN '02' THEN 'Febuary' WHEN '03' THEN 'March' WHEN '04' THEN 'April' WHEN '05' THEN 'May' WHEN '06' THEN 'June' 
