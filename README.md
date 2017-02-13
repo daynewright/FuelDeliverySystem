@@ -113,6 +113,7 @@ _(Also listed as issues [here](https://github.com/daynewright/FuelDeliverySystem
   **Then** the truck will be notified of the next location to travel
 
 ## Database Queries
+_(Queries are based on Sqlite)_
 
 #### TOP 10 LAST 12 MONTHS
 [Query File](https://github.com/daynewright/FuelDeliverySystem/blob/master/Data/Queries/Avg_Fuel_Location_Month_Name.sql)
