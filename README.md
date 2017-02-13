@@ -60,19 +60,19 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
 
 ### Desktop Application
 
-##### Dispatch Truck From Base
+#### Dispatch Truck From Baseg
  **Given** a truck has refueled at base <br/>
  **When** the dispatcher receives the notification <br />
  **Then** the dispatcher sends web service new trip <br />
  **Then** the dispatcher sends the truck a starting destination within its operating region <br />
 
-##### Dispatch Truck To Next Location
+#### Dispatch Truck To Next Location
  **Given** a truck has completed a location drop off <br />
  **And** the truck has fuel remaining <br />
  **When** the dispatcher receives the notification <br />
  **Then** the dispatcher sends the truck a new destination within its operating region
 
-##### Dispatch Truck Back To Base
+#### Dispatch Truck Back To Base
  **Given** a truck has completed a location drop off <br />
  **And** the truck has no fuel remaining <br />
  **When** the dispatcher receives the notification <br />
@@ -80,19 +80,19 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
 
 ### Embedded Truck System
 
-##### Travel To First Location
+#### Travel To First Location
   **Given** a truck is at base <br />
   **When** the truck has refueled <br />
   **Then** the truck will notify the dispatcher it is ready for a location in its operating region
 
-##### Travel To Next Location
+#### Travel To Next Location
   **Given** a truck is at a location <br />
   **When** the truck has delivered fuel <br />
   **Then** the truck will notify the dispatcher it is ready for instructions
 
 ### Web Service API
 
-##### Truck Sends POST Request After Stop
+#### Truck Sends POST Request After Stop
   **Given** a truck is at a location <br />
   **When** the truck has finished fueling <br />
   **Then** the truck will `POST` to the Web Service API with the `locationId` / `TripId` / `FuelPercentageUsed` / `FuelAmountUsed`
@@ -103,11 +103,11 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
   **And** the truck has sent a `POST` request to the Web Service API <br />
   **Then** the Web Service API will send a notification to the Dispatcher
 
-##### Dispatcher Sends POST Request with Next location
+#### Dispatcher Sends POST Request with Next location
   **Given** a dispatcher has been notified of a truck `POST` <br />
   **Then** the dispatcher will send a `GET` for new data <br />
   **Then** the dispatcher will `POST` with new location data
 
-##### Truck Notified Of Dispatcher POST Request
+#### Truck Notified Of Dispatcher POST Request
   **Given** a dispatcher has set a `POST` with new location data <br />
   **Then** the truck will be notified of the next location to travel
