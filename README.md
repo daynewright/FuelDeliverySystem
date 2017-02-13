@@ -30,7 +30,7 @@ Below is the ERD that show the relationships between the 5 tables used.  The cur
   - `Name (string)` - Name given to this region.
   - `Radius (int)` - Mile radius that this region covers.
   - `DateCreated (dateTime)` - Timestamp of when each region was created.
- - `Location` - Contains the locations or physical "stops" for that are contained in a region. A location can only belong to a single region.
+ - `Location` - Contains the locations or physical "stops" that are contained in a region. A location can only belong to a single region.
   - `LocationId` - Primary key.
   - `OperatingRegionId` - Foreign key to locations region.
   - `Longitude (real)` - Longitude for location.
