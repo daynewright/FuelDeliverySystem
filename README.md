@@ -124,11 +124,10 @@ _(Queries are based on Sqlite)_
 */
 
 SELECT L.Name AS "Location Name",
-	(SELECT SUM(FuelAmountUsed)
-	 FROM Stop AS S
-	 WHERE S.LocationId == L.LocationId) AS "Fuel Received"
+SUM(FuelAmountUsed) AS "Fuel Received"
 FROM Location AS L INNER JOIN Stop AS S
 WHERE S.DateCreated BETWEEN DATE('now', 'start of month', '-11 months') AND DATE('now')
+ON L.LocationId == S.LocationId
 GROUP BY L.Name
 ORDER BY "Fuel Received" DESC
 LIMIT 10;
@@ -144,11 +143,10 @@ LIMIT 10;
 
 
 SELECT STRFTIME('%m', S.DateCreated) AS "Month",
-	L.Name AS "Location Name",
-	(SELECT AVG(FuelAmountUsed)
-	 FROM Stop AS S
-	 WHERE S.LocationId == L.LocationId) AS "Fuel Use Avg"
+L.Name AS "Location Name",
+AVG(FuelAmountUsed) AS "Fuel Use Avg"
 FROM Location AS L, Stop AS S
+ON L.LocationId == S.LocationId
 WHERE L.LocationId == S.LocationId
 GROUP BY L.Name;
 ```
