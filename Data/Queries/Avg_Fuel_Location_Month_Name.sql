@@ -8,10 +8,8 @@ SELECT CASE STRFTIME('%m', S.DateCreated)
 	WHEN '07' THEN 'July' WHEN '08' THEN 'August' WHEN '09' THEN 'September' WHEN '10' THEN 'October' WHEN '11' THEN 'November' WHEN '12' THEN 'December' ELSE '' END
 	AS "Month",
 	L.Name AS "Location Name",
-	(SELECT AVG(FuelAmountUsed)
-	 FROM Stop AS S
-	 WHERE STRFTIME('%m', S.DateCreated) 
-	 AND S.LocationId == L.LocationId) AS "Fuel Use Avg"
+	AVG(FuelAmountUsed) AS "Fuel Use Avg"
 FROM Location AS L, Stop AS S
+ON L.LocationId == S.LocationId
 WHERE L.LocationId == S.LocationId
 GROUP BY L.Name;

@@ -6,9 +6,8 @@
 
 SELECT STRFTIME('%m', S.DateCreated) AS "Month",
 	L.Name AS "Location Name",
-	(SELECT AVG(FuelAmountUsed)
-	 FROM Stop AS S
-	 WHERE S.LocationId == L.LocationId) AS "Fuel Use Avg"
+	AVG(S.FuelAmountUsed) AS "Fuel Use Avg"
 FROM Location AS L, Stop AS S
+ON L.LocationId == S.LocationId
 WHERE L.LocationId == S.LocationId
 GROUP BY L.Name;
